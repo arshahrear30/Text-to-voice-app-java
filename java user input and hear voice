@@ -41,7 +41,12 @@ public class MainActivity extends AppCompatActivity {
         edbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if(edtexts.length()>0){
                 textToSpeech.speak(""+edtexts.getText().toString(), TextToSpeech.QUEUE_FLUSH, null, null);
+            }else{
+                    textToSpeech.speak("Please write something.", TextToSpeech.QUEUE_FLUSH, null, null);
+                    edtexts.setError("Please, write something.");}
             }
         });
 
